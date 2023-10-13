@@ -48,7 +48,7 @@ For _key_, the plugin supports either way;
    You can do this simply using `key` option in td-agent configuration file.
 
    ```apache
-   type redis_store
+   type redis_sentinel
    key userdata
    ```
 
@@ -62,7 +62,7 @@ For _key_, the plugin supports either way;
    and you want to use each name of user, you can use `key_path` option.
 
    ```apache
-   type redis_store
+   type redis_sentinel
    key_path user.name
    ```
 
@@ -103,14 +103,15 @@ Configuration
 
 ### Redis connection
 
-| Key        | Type   | Required?   |                  Default | Description                                       |
-| :----      | :----- | :---------- | :----------------------- | :------------                                     |
-| `host`     | string | Optional    |                127.0.0.1 | host name of Redis server                         |
-| `port`     | int    | Optional    |                     6379 | port number of Redis server                       |
-| `password` | string | Optional    |                          | password for Redis connection                     |
-| `path`     | string | Optional    |                          | To connect via Unix socket, try '/tmp/redis.sock' |
-| `db`       | int    | Optional    |                        0 | DB number of Redis                                |
-| `timeout`  | float  | Optional    |                      5.0 | connection timeout in seconds                     |
+| Key                 | Type   | Required?   |                  Default | Description                                       |
+| :----               | :----- | :---------- | :----------------------- | :------------                                     |
+| `sentinel_host`     | string | Optional    |                127.0.0.1 | Sentinel host name of Redis server.If multiple separate by ,eg 10.0.0.1,10.0.0.2,10.0.0.3                         |
+| `port`              | int    | Optional    |                     6379 | port number of Redis server                       |
+| `group_name`        | string | Optional    |               master-node| sentinel group name                               |
+| `password`          | string | Optional    |                          | password for Redis connection                     |
+| `path`              | string | Optional    |                          | To connect via Unix socket, try '/tmp/redis.sock' |
+| `db`                | int    | Optional    |                        0 | DB number of Redis                                |
+| `timeout`           | float  | Optional    |                      5.0 | connection timeout in seconds                     |
 
 ### common options for storages
 
@@ -164,19 +165,12 @@ No more options than common options.
 Contributors
 ------------
 
-moaikids  
-HANAI tohru  
-Mohit Khanna  
-yamada-shinji  
-Heitor de Souza  
-Hiroshi Hatake  
-Gabriel Bordeaux  
+A360
 
 Copyright
 ---------
 
-Copyright (c) 2013 moaikids  
-Copyright (c) 2014 HANAI Tohru  
+Copyright (c) 2023 A360
 
 License
 -------
