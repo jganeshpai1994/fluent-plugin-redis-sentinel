@@ -13,6 +13,7 @@ Requirements
 | >= 0.2.0 | >= v0.14.15 | >= 2.1 |
 |  < 0.2.0 | >= v0.12.0 | >= 1.9 |
 
+
 Background
 ----------
 
@@ -92,10 +93,10 @@ Installation
 ------------
 
 ```bash
-fluent-gem install fluent-plugin-redis-store
+fluent-gem install fluent-plugin-redis-sentinel
 
 # or if you are using td-agent:
-td-agent-gem install fluent-plugin-redis-store
+td-agent-gem install fluent-plugin-redis-sentinel
 ```
 
 Configuration
@@ -105,9 +106,9 @@ Configuration
 
 | Key                 | Type   | Required?   |                  Default | Description                                       |
 | :----               | :----- | :---------- | :----------------------- | :------------                                     |
-| `sentinel_host`     | string | Optional    |                127.0.0.1 | Sentinel host name of Redis server.If multiple separate by ,eg 10.0.0.1,10.0.0.2,10.0.0.3                         |
+| `sentinel_host`     | string | Optional    |                127.0.0.1 | Sentinel host name of Redis server.If multiple hosts separate by ','. For eg 10.0.0.1,10.0.0.2,10.0.0.3                         |
 | `port`              | int    | Optional    |                     6379 | port number of Redis server                       |
-| `group_name`        | string | Optional    |               master-node| sentinel group name                               |
+| `group_name`        | string | Optional    |               master-node| Sentinel group name                               |
 | `password`          | string | Optional    |                          | password for Redis connection                     |
 | `path`              | string | Optional    |                          | To connect via Unix socket, try '/tmp/redis.sock' |
 | `db`                | int    | Optional    |                        0 | DB number of Redis                                |
