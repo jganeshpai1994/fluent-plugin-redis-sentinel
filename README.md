@@ -17,9 +17,9 @@ Requirements
 Background
 ----------
 
-This is folked project from [fluent-plugin-redisstore][].
+This is forked project from [fluent-plugin-redis-store][].
 
-[fluent-plugin-redisstore]: https://github.com/moaikids/fluent-plugin-redisstore
+[fluent-plugin-redis-store]: https://github.com/pokehanai/fluent-plugin-redis-store
 
 Features
 --------
@@ -72,7 +72,7 @@ For _key_, the plugin supports either way;
 In addition, `key_prefix` and `key_suffix` are useful in some cases. Both are available either `key` and `key_path`
 
    ```apache
-   type redis_store
+   type redis_sentinel
    key_path user.name
    key_prefix ouruser.
    key_suffix .accesslog
