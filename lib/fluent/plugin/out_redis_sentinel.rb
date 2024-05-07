@@ -165,6 +165,8 @@ module Fluent::Plugin
       value = get_value_from(record)
       @redis.sadd key, value
       set_key_expire key
+      puts "Syncing to Disk"
+      @@redis.save()
     end
 
     def operation_for_list(record)
@@ -187,7 +189,8 @@ module Fluent::Plugin
       key = get_key_from(record)
       value = get_value_from(record)
       @redis.set key, value
-
+      puts "Syncing to Disk"
+      @@redis.save()
       set_key_expire key
     end
 
@@ -195,6 +198,8 @@ module Fluent::Plugin
       key = get_key_from(record)
       value = get_value_from(record)
       @redis.publish key, value
+      puts "Syncing to Disk"
+      @@redis.save()
     end
 
     def generate_zremrangebyrank_script(key, maxlen, order)
